@@ -76,7 +76,7 @@ int Server() {
     sock_fd = socket(AF_INET, SOCK_STREAM, 0);
     int i;
 
-    if (setsockopt(sock_fd, SOL_SOCKET, SO_REFUSEADDR, &optval, sizeof(optval)) <0) {
+    if (setsockopt(sock_fd, SOL_SOCKET, SO_REUSEADDR, &optval, sizeof(optval)) <0) {
         printf("    [!!] Error setting TCP Socket Options!\n")
         return 1;
     }
