@@ -17,12 +17,12 @@ def select_DNS(pkt):
         if DNSQR in pkt: #and pkt.dport == 53:
         # queries
            print ('[**] Detected DNS QR Message at: ' + pkt_time)
-           print(str(pkt.show([Raw])))
+           print(str(pkt.show([Raw][load])))
            # 
         elif DNSRR in pkt:# and pkt.sport == 53:
         # responses
            print ('[**] Detected DNS RR Message at: ' + pkt_time)
-           print(str(pkt.show([Raw][load])))
+           print(str(pkt.show([Raw])))
  # 
     except:
         pass
