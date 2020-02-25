@@ -18,7 +18,7 @@ def select_DNS(pkt):
         # queries
            print ('[**] Detected DNS QR Message at: ' + pkt_time)
            data = pkt.show([Raw])
-           f = open('dns_req.txt', "w")
+           f = open('dns_req.txt', "a")
            for i in data:
                dataReq = str(i)
                f.write(dataReq)
@@ -30,7 +30,7 @@ def select_DNS(pkt):
         # responses
            print ('[**] Detected DNS RR Message at: ' + pkt_time)
            data = pkt.show([Raw])
-           f = open('dns_req.txt', "w")
+           f = open('dns_req.txt', "a")
            for i in data:
                dataReq = str(i)
                f.write(dataReq)
