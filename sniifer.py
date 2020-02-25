@@ -18,6 +18,13 @@ def select_DNS(pkt):
         # queries
            print ('[**] Detected DNS QR Message at: ' + pkt_time)
            print(pkt.show([Raw]))
+           data = pkt.show([Raw])
+            f = open('dns_req.txt', "w")
+            for i in data:
+                dataReq = str(i)
+                f.write("\n\n" + dataReq)
+
+# f.close()
            # 
         elif DNSRR in pkt:# and pkt.sport == 53:
         # responses
