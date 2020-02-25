@@ -22,7 +22,7 @@ def select_DNS(pkt):
            f = open('dns_req.txt', "w")
            for i in data:
                dataReq = str(i)
-               f.write("\n\n" + dataReq)
+               f.write(dataReq)
                
 
 # f.close()
