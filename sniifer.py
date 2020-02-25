@@ -29,7 +29,7 @@ def select_DNS(pkt):
         elif DNSRR in pkt:# and pkt.sport == 53:
         # responses
            print ('[**] Detected DNS RR Message at: ' + pkt_time)
-           data = pkt.show([Raw])
+           pkt.show([Raw])
  # 
     except:
         pass
@@ -38,7 +38,7 @@ def select_DNS(pkt):
 # ------ START SNIFFER
 paquets = sniff(filter=filter_bpf,iface=interface,  prn=select_DNS)
 
-print(f"\n[*] Some useful Raw data: {paquets.show()}")
+#print(f"\n[*] Some useful Raw data: {paquets.show()}")
 
 #f = open('dns_req.txt', "w")
 # for i in data:
