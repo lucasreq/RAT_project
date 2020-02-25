@@ -7,7 +7,7 @@ import datetime
 import sys
 
 interface = 'wlp3s0'
-filter_bpf = "host 147.68.207.77 and tcp port 53"
+filter_bpf = "host 77.207.68.147 and tcp port 53"
 
 # ------ SELECT/FILTER MSGS
 def select_DNS(pkt):
