@@ -22,7 +22,7 @@ def select_DNS(pkt):
         elif DNSRR in pkt:# and pkt.sport == 53:
         # responses
            print ('[**] Detected DNS RR Message at: ' + pkt_time)
-           print(str(pkt.show([Raw])))
+           print(str(pkt.show([Raw][load])))
  # 
     except:
         pass
