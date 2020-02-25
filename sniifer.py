@@ -14,22 +14,22 @@ def select_DNS(pkt):
     pkt_time = pkt.sprintf('%sent.time%')
 # ------ SELECT/FILTER DNS MSGS
     try:
-        #if DNSQR in pkt: #and pkt.dport == 53:
+        if DNSQR in pkt: #and pkt.dport == 53:
         # queries
-        print ('[**] Detected DNS QR Message at: ' + pkt_time)
-        print(str(pkt.show([Raw])))
+           print ('[**] Detected DNS QR Message at: ' + pkt_time)
+           print(str(pkt.show([Raw])))
            # 
-        #elif DNSRR in pkt:# and pkt.sport == 53:
+        elif DNSRR in pkt:# and pkt.sport == 53:
         # responses
-        print ('[**] Detected DNS RR Message at: ' + pkt_time)
-        print(str(pkt.show([Raw])))
+           print ('[**] Detected DNS RR Message at: ' + pkt_time)
+           print(str(pkt.show([Raw])))
  # 
     except:
         pass
     
 
 # ------ START SNIFFER
-paquets = sniff(filter=filter_bpf,iface=interface,  prn=select_DNS)
+paquets = sniff(filter=filter_bpf,iface=interface)
 
 print(f"\n[*] Some useful Raw data: {paquets.show()}")
 
