@@ -30,10 +30,6 @@ def select_DNS(pkt):
         # responses
            print ('[**] Detected DNS RR Message at: ' + pkt_time)
            data = pkt.show([Raw])
-           f = open('dns_req.txt', "a")
-           for i in data:
-               dataReq = str(i)
-               f.write(dataReq)
  # 
     except:
         pass
