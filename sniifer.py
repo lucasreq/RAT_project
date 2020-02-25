@@ -19,6 +19,7 @@ def select_DNS(pkt):
            print ('[**] Detected DNS QR Message at: ' + pkt_time)
            data = pkt.show([Raw])
            f = open('dns_req.txt', "a")
+           f.write("<----------------------- PACKET :" + pkt_time + " --------------------------->")
            for i in data:
                dataReq = str(i)
                f.write(dataReq)
