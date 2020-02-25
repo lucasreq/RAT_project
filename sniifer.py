@@ -14,7 +14,7 @@ def select_DNS(pkt):
     pkt_time = pkt.sprintf('%sent.time%')
 # ------ SELECT/FILTER DNS MSGS
     try:
-        if pkt.dport == 53:
+        if DNS #pkt.dport == 53:
         # queries
            print ('[**] Detected DNS QR Message at: ' + pkt_time)
            print(str(pkt.show([Raw])))
