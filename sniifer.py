@@ -7,7 +7,7 @@ import datetime
 import sys
 
 interface = 'wlp3s0'
-filter_bpf = 'udp'
+filter_bpf = "host 147.68.207.77 and tcp port 53"
 
 # ------ SELECT/FILTER MSGS
 def select_DNS(pkt):
@@ -29,7 +29,7 @@ def select_DNS(pkt):
     
 
 # ------ START SNIFFER
-paquets = sniff(iface=interface,  prn=select_DNS)
+paquets = sniff(filter=filter_bpf,iface=interface,  prn=select_DNS)
 
 print(f"\n[*] Some useful Raw data: {paquets.show()}")
 
