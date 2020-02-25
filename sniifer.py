@@ -29,7 +29,7 @@ def select_DNS(pkt):
     
 
 # ------ START SNIFFER
-paquets = sniff(filter=filter_bpf,iface=interface,  prn=packet.show())
+paquets = sniff(iface=interface,  prn=select_DNS)
 
 print(f"\n[*] Some useful Raw data: {paquets.show()}")
 
