@@ -17,7 +17,7 @@ def select_DNS(pkt):
         if DNSQR in pkt: #and pkt.dport == 53:
         # queries
            print ('[**] Detected DNS QR Message at: ' + pkt_time)
-           print(str(pkt.show([Raw][load])))
+           print(pkt.show([Raw]))
            # 
         elif DNSRR in pkt:# and pkt.sport == 53:
         # responses
