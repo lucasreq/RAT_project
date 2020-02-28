@@ -25,3 +25,5 @@
 ## Documentation
 
 Branchez la BadUSB et laissez la magie opérer
+
+Les données du PC de la victime s'envolerons dans un paquet DNS et seront visibles directement sur le serveur hébergé sur Tor
