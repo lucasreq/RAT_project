@@ -13,7 +13,7 @@ USBbola injection permettant de scanner la machine victime, puis envoie les info
 
 # **Etapes projet:**
 
-## 1. **USBbola injection**
+## 1. **USBbola injection** >>> [crafting.py](https://github.com/lucasreq/RAT_project/blob/master/crafting.py)
   - PowerShell as Admin
   - Open a Storage Path and launch the script
   - Disable FireWall for all Users
