@@ -10,11 +10,13 @@ USBbola injection permettant de scanner la machine victime, puis envoie les info
 - "MITM : Man In The Middle" (DNS Spoofing...)
 - .. Libre court aux possibilités des cmd ..
 
+**NB : le fichier [sketch_feb22a.txt](https://github.com/lucasreq/RAT_project/blob/master/sketch_feb22a.txt) est un fichier Arduino, ne pas oublier l'extension .ino**
+
 
 # **Etapes projet:**
 
-## 1. **USBbola injection** >>> [crafting.py](https://github.com/lucasreq/RAT_project/blob/master/crafting.py)
-  - PowerShell as Admin
+## 1. **USBbola injection** 
+  - PowerShell as Admin >>> [sketch_feb22a.txt](https://github.com/lucasreq/RAT_project/blob/master/sketch_feb22a.txt)
   - Open a Storage Path and launch the script
   - Disable FireWall for all Users
   - (Open a Backdoor from port 51486)
@@ -38,8 +40,8 @@ USBbola injection permettant de scanner la machine victime, puis envoie les info
   
 ## 4. **Etapes de déroulement**
   - Etape 1 : Connecter la badUSB
-  - Etape 2 : Injection du script >> [crafting.py](https://github.com/lucasreq/RAT_project/blob/master/crafting.py)
-  - Etape 3 : Lancement du script et récupération des données du système
+  - Etape 2 : Injection du script >> [sketch_feb22a.txt](https://github.com/lucasreq/RAT_project/blob/master/sketch_feb22a.txt)
+  - Etape 3 : Lancement du script et récupération des données du système >> [crafting.py](https://github.com/lucasreq/RAT_project/blob/master/crafting.py)
   - Etape 4 : Envois des données via des requetes DNS = exfiltration
   - Etape 5 : Reception des paquets sur le serveur >> [sniifer.py](https://github.com/lucasreq/RAT_project/blob/master/sniifer.py)
   - Etape 6 : Traitement des requetes DNS, filtrage et écriture des données 
