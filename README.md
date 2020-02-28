@@ -9,7 +9,6 @@
         - distrib
         - mac
         - user
-        - files vulnerabilities
     - Recursiv files scan
     - Environnement scan
 
@@ -17,13 +16,12 @@
     - Data exfiltration (target)
     - Request sniffing (server)
 
-- Vulnerability scan:
-    - API check
-
 - Spyware injection:
     - BadUSB usage
     - Daemoning
     - hide process
 
-modules to check :
-LD preload : 
+
+## Documentation
+
+Branchez la BadUSB et laissez la magie opérer
